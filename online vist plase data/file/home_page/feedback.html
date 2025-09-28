@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback Form</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* Blue animated background */
+      background: linear-gradient(-45deg, #001f3f, #004080, #0066cc, #0099ff);
+      background-size: 400% 400%;
+      animation: flashBlue 6s ease infinite;
+    }
+
+    @keyframes flashBlue {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .form-container {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 40px;
+      border-radius: 16px;
+      width: 100%;
+      max-width: 450px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+      animation: fadeInScale 1s ease;
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #003366;
+      font-size: 1.8rem;
+      animation: slideDown 0.8s ease;
+    }
+
+    .form-group {
+      position: relative;
+      margin-bottom: 25px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 12px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      outline: none;
+      font-size: 1rem;
+      background: none;
+      transition: 0.3s;
+    }
+
+    .form-group textarea {
+      min-height: 100px;
+      resize: none;
+    }
+
+    .form-group label {
+      position: absolute;
+      top: 50%;
+      left: 14px;
+      transform: translateY(-50%);
+      background: #fff;
+      padding: 0 5px;
+      color: #777;
+      font-size: 0.95rem;
+      pointer-events: none;
+      transition: 0.3s ease;
+    }
+
+    /* Floating label animation */
+    .form-group input:focus + label,
+    .form-group input:not(:placeholder-shown) + label,
+    .form-group textarea:focus + label,
+    .form-group textarea:not(:placeholder-shown) + label {
+      top: -8px;
+      font-size: 0.8rem;
+      color: #0066cc;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: #0066cc;
+      box-shadow: 0 0 8px rgba(0, 102, 204, 0.5);
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .button-group button {
+      flex: 1;
+      padding: 14px;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.05rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      color: #fff;
+    }
+
+    .submit-btn {
+      background: linear-gradient(135deg, #2f567e, #0099ff);
+    }
+    .submit-btn:hover {
+      background: linear-gradient(135deg, #002a66, #0077cc);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .cancel-btn {
+      background: linear-gradient(135deg, #ff4d4d, #cc0000);
+    }
+    .cancel-btn:hover {
+      background: linear-gradient(135deg, #e60000, #990000);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Animations */
+    @keyframes fadeInScale {
+      0% { opacity: 0; transform: scale(0.9); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes slideDown {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Feedback Form</h2>
+    <form>
+      <div class="form-group">
+        <input type="text" id="name" name="name" placeholder=" " required>
+        <label for="name">Your Name</label>
+      </div>
+
+      <div class="form-group">
+        <input type="email" id="email" name="email" placeholder=" " required>
+        <label for="email">Your Email</label>
+      </div>
+
+      <div class="form-group">
+        <textarea id="message" name="message" placeholder=" " required></textarea>
+        <label for="message">Your Feedback</label>
+      </div>
+
+      <div class="button-group">
+        <button type="submit" class="submit-btn">Submit</button>
+        <button type="button" class="cancel-btn" onclick="window.location.href='home.html'">
+  Cancel
+</button>
+
+</button>
+      </div>
+    </form>
+  </div>
+
+</body>
+</html>

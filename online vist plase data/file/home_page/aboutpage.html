@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us - Travel Land</title>
+<style>
+/* Global styles */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f4f4f4;
+}
+
+/* Navbar Styles */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background: rgba(0, 0, 0, 0.6); /* semi-transparent so bg animation shows */
+  backdrop-filter: blur(8px);      /* glassy effect */
+  overflow: hidden;
+  position: fixed;   /* sticks to top */
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;  /* center items */
+}
+
+/* Nav items */
+ul li {
+  float: none; /* remove float for flexbox */
+  margin: 0 10px;
+}
+
+ul li a {
+  display: block;
+  color: #fff;
+  text-align: center;
+  padding: 14px 18px;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Hover underline animation */
+ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #00aaff;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+ul li a:hover {
+  color: #00aaff;
+}
+
+ul li a:hover::after {
+  width: 60%;
+}
+
+/* Active link (for Home) */
+ul li a.active {
+  color: #00aaff;
+}
+
+ul li a.active::after {
+  width: 60%;
+}
+
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<ul>
+  <li><a href="home.html">Home</a></li>
+  <li><a href="">About Us</a></li>
+  <li><a href="destination.html">Destination</a></li>
+  <li class="right"><a href="login.html">Log In</a></li>
+  <li class="right"><a href="singup.html">Sign Up</a></li>
+</ul>
+<style>
+/*mission section animation */
+
+.about-section {
+  position: relative;
+  background: linear-gradient(120deg, #f9f9f9, #f9f9f9);
+  padding: 60px 20px;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+/* Animated light line effect */
+.about-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    120deg, 
+    transparent 40%, 
+    rgba(0, 123, 255, 0.2) 50%, 
+    transparent 60%
+  );
+  animation: lightSweep 5s linear infinite;
+}
+
+/* Keyframes for light sweep */
+@keyframes lightSweep {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Heading Animation */
+.about-section h1 {
+  font-size: 2.5em;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+  animation: fadeZoom 1.2s ease forwards;
+}
+
+/* Paragraph Animation */
+.about-section p1 {
+  font-size: 1.1em;
+  line-height: 1.7;
+  color: #555;
+  max-width: 800px;
+  margin: 0 auto;
+  display: block;
+  opacity: 0;
+  position: relative;
+  z-index: 1;
+  animation: fadeSlide 1.5s ease forwards;
+  animation-delay: 0.6s;
+}
+
+/* Keyframes for text animations */
+@keyframes fadeZoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+</style>
+<!-- Mission Section -->
+<div class="about-section">
+  <h1>Our Mission</h1>
+  <p1>At Travel Land, our mission is to inspire and empower travelers both tourists and locals to explore the beauty of Sri Lanka with ease and confidence.
+     We aim to provide accurate, detailed, and engaging information about every destination, 
+     helping visitors plan memorable journeys, discover hidden gems, and experience the culture, 
+     history, and natural wonders of the island. Through beautiful images, helpful tips, and clear guidance, we strive to make every trip enjoyable, safe, and unforgettable.</p1>
+  
+</div>
+
+<!-- Team Section -->
+<h2 style="text-align:center; margin-top:40px;">Meet Our Team</h2>
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <img src="vishwa (1).jpeg" alt="Sophia" style="width:100%">
+      <div class="container">
+        <h2>Vishwa Sandhakalum</h2>
+        <p class="title">Front-End Developer</p>
+        <p>Software engineering student at NIBM,  Full stack developer, Developing more Websites. </p>
+        <p>vishwasandhakalum330@Gmail.com</p>
+        <button class="button" onclick="window.open('https://www.instagram.com/vishwasandakalum?igsh=am51emUwZmc4cTBx&utm_source=qr','_blank')">Contact</button>     
+     </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="duliya.jpg" alt="David" style="width:100%">
+      <div class="container">
+        <h2>Dulith Induranga</h2>
+        <p class="title">Front-End Developer</p>
+        <p>Software engineering students at NIBM. Web developer, mobile application developer and video Editor</p>
+        <p>dulithiduranga02@gmail.com</p>
+            <button class="button" onclick="window.open('https://www.instagram.com/dulith_iduranga/','_blank')">Contact</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="kumma.jpeg" alt="Emma" style="width:100%">
+      <div class="container">
+        <h2>Kumuthu Dinuwara</h2>
+        <p class="title">Back-End developer</p>
+        <p>software engineer student at nibm.completed the certification course at nibm. English course completed at royal institution school.</p1>
+        <p1>Kumuthudinuwarakansawage@gmail.com</p>
+        <button class="button" onclick="window.open('https://www.instagram.com/kumma_88?igsh=MW5nejhvZGpwYWg0dQ=','_blank')">Contact</button>     
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="akindu.jpeg" alt="Liam" style="width:100%">
+      <div class="container">
+        <h2>Akindu Dias</h2>
+        <p class="title">Back-End Developer</p>
+        <p>Focuses on building scalable and reliable software solutions.</p>
+        <p>akindudias2006@gmail.com</p>
+        <button class="button" onclick="window.open('https://www.instagram.com/akindu_dias?igsh=MWtubjFnM2VnZHh5NA==','_blank')">Contact</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+<style>   /*team section animation css */
+ /* Team Section Background with Blue Light Sweep */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin: 40px auto;
+  position: relative;
+  padding: 40px 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f9f9f9; /* neutral base color */
+}
+
+/* Blue light sweep animation (right → left) */
+.row::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    -120deg,
+    transparent 40%,
+    rgba(0, 123, 255, 0.15) 50%,
+    transparent 60%
+  );
+  animation: lightSweepTeam 5s linear infinite;
+}
+
+/* Keyframes for right → left sweep */
+@keyframes lightSweepTeam {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Columns */
+.column {
+  flex: 1 1 250px;
+  max-width: 300px;
+  position: relative;
+  z-index: 1; /* keep cards above background animation */
+}
+
+/* Card Styling */
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 1s ease forwards;
+  opacity: 0;
+}
+
+.card img {
+  border-bottom: 3px solid #f0f0f0;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* Inside card */
+.container {
+  padding: 20px;
+  text-align: center;
+}
+
+.title {
+  color: #555;
+  font-size: 14px;
+  margin-bottom: 8px;
+  font-style: italic;
+}
+
+/* Contact Button */
+.button {
+  border: none;
+  outline: none;
+  padding: 10px 16px;
+  margin-top: 10px;
+  background-color: #7183d1;
+  color: white;
+  font-size: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+  background-color: #4a5bb5;
+  transform: scale(1.05);
+}
+
+/* Fade-in for cards */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Staggered delay */
+.column:nth-child(1) .card { animation-delay: 0.2s; }
+.column:nth-child(2) .card { animation-delay: 0.4s; }
+.column:nth-child(3) .card { animation-delay: 0.6s; }
+.column:nth-child(4) .card { animation-delay: 0.8s; }
+</style>
+</html>

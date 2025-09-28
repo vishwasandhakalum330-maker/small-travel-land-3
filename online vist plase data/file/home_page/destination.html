@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+/* navigation csss */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f4f4f4;
+}
+
+/* Navbar Styles */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background: rgba(0, 0, 0, 0.6); /* semi transparent so bg animation shows */
+  backdrop-filter: blur(8px);      /* glassy effect */
+  overflow: hidden;
+  position: fixed;   /* sticks to top */
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;  /* center items */
+}
+
+/* Nav items */
+ul li {
+  float: none; /* remove float for flexbox */
+  margin: 0 10px;
+}
+
+ul li a {
+  display: block;
+  color: #fff;
+  text-align: center;
+  padding: 14px 18px;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Hover underline animation */
+ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #00aaff;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+ul li a:hover {
+  color: #00aaff;
+}
+
+ul li a:hover::after {
+  width: 60%;
+}
+
+/* Active link (for Home) */
+ul li a.active {
+  color: #00aaff;
+}
+
+ul li a.active::after {
+  width: 60%;
+}
+</style>
+ <body>  
+        <ul class="active">            
+            <li><a href="home.html" >Home</a></li>
+            <li><a href="aboutpage.html">About Us</a></li>
+            <li><a href="destination.html">Destination</a></li>
+             <li><a href="feedback.html">Feedback</a></li>
+            <li style="float:right"><a href="">Log In</a></li>
+            <li style="float:right"><a href="" href="#about">Sing Up</a></li>
+        </ul>
+    </body>
+
+<style> 
+/* destination css */
+.destination-section {
+  text-align: center;
+  padding: 60px 20px;
+  background: #fff;
+}
+
+.destination-section h2 {
+  font-size: 42px;
+  font-weight: bold;
+  color: #007bff;
+  margin-bottom: 15px;
+}
+
+.section-description {
+  font-size: 20px;
+  max-width: 800px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.carousel-container {
+  position: relative;
+  width: 85%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.destination-card {
+  min-width: 33.33%; /* Show 3 cards */
+  margin: 10px;
+  padding: 20px;
+  background: #f9f9ff;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.destination-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.destination-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.destination-card h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.destination-card p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #444;
+}
+
+.arrow {
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 20px;
+}
+
+.arrow.left { left: -50px; }
+.arrow.right { right: -50px; }
+
+/* Shared section style (About + Destination) */
+.about-section,
+.destination-section {
+  position: relative;
+  background: linear-gradient(120deg, #f9f9f9, #f9f9f9);
+  padding: 60px 20px;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+/* Animated light line effect */
+.about-section::before,
+.destination-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    120deg, 
+    transparent 40%, 
+    rgba(0, 123, 255, 0.2) 50%, 
+    transparent 60%
+  );
+  animation: lightSweep 5s linear infinite;
+}
+
+/* Heading Animation */
+.about-section h1,
+.destination-section h2 {
+  font-size: 2.5em;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+  animation: fadeZoom 1.2s ease forwards;
+}
+
+/* Paragraph Animation */
+.about-section p1,
+.destination-section .section-description {
+  font-size: 1.1em;
+  line-height: 1.7;
+  color: #555;
+  max-width: 800px;
+  margin: 0 auto;
+  display: block;
+  opacity: 0;
+  position: relative;
+  z-index: 1;
+  animation: fadeSlide 1.5s ease forwards;
+  animation-delay: 0.6s;
+}
+
+/* Keyframes */
+@keyframes lightSweep {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes fadeZoom {
+  0% { opacity: 0; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeSlide {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+
+</style>
+<body>
+   <section class="destination-section">
+  <h2>Choose the Best Place</h2>
+  <p class="section-description">
+    Discover the world’s top destinations. Get details, photos, and knowledge 
+    about breathtaking places across the globe. Find your dream destination today!
+  </p>
+
+  <div class="carousel-container">
+    <button class="arrow left">&#10094;</button>
+    <div class="carousel">
+      <div class="carousel-track">
+
+        <!-- Destination Card -->
+        <div class="destination-card">
+          <img src="sigiriya.jpg" alt="Paris">
+          <h3>Sigiriya Rock Fortress (Lion Rock)–Central Province</h3>
+          <p>
+           An ancient rock citadel built by King Kashyapa in the 5th century.
+           Famous for its frescoes, mirror wall, and the giant lion’s paw entrance.
+           UNESCO World Heritage Site and one of Sri Lanka’s most iconic landmarks.
+          </p>
+        </div>
+        <div class="destination-card">
+          <img src="kandy.jpg" alt="Paris">
+          <h3>Temple of the Tooth Relic (Sri Dalada Maligawa) – Kandy</h3>
+          <p>
+             Location: Kandy City. Highlights: Sacred relic of Lord Buddha’s tooth. 
+             History: A UNESCO site, central to Sri Lankan Buddhism.
+             Activities: Witness Kandy Esala Perahera festival, temple rituals, museum visit. 
+             Best Time: July – August (Perahera season), or December – April.
+          </p>
+        </div>
+        <div class="destination-card">
+          <img src="arugambey.jpg" alt="Paris">
+          <h3>Arugam Bay – Eastern Province</h3>
+          <p>
+            Location: Ampara District.  Highlights: Surfer’s paradise, laid-back beaches.
+             Activities: Surfing, lagoon tours, visit Kumana National Park. 
+             Best Time: April – October (surfing season).
+          </p>
+        </div>
+        <div class="destination-card">
+          <img src="yala.jpg" alt="Tokyo">
+          <h3>Yala National Park – Southern Province</h3>
+          <p>
+           Location: Hambantota & Monaragala Districts. Highlights: Highest leopard density in the world.
+            History: Established as a wildlife sanctuary in 1900, national park in 1938. 
+            Activities: Safari tours to see elephants, leopards, sloth bears, and birds. 
+            Best Time: February – July (dry season, best wildlife viewing).
+          </p>
+        </div>
+
+        <div class="destination-card">
+          <img src="anuradhapura.jpg" alt="New York">
+          <h3>Anuradhapura – North Central Province</h3>
+          <p>
+             Location: Anuradhapura District. Highlights: Jetavanaramaya stupa, Ruwanwelisaya, Sri Maha Bodhi.
+              History: First ancient capital (4th century BC – 11th century AD).
+               Activities: Visit ancient ruins, pilgrimage to Bodhi tree, explore reservoirs. 
+               Best Time: May – September.
+          </p>
+        </div>
+
+        <div class="destination-card">
+          <img src="adams.jpg" alt="New York">
+          <h3>Adams Peak (Sri Pada) – Central Province</h3>
+          <p>
+             Location: Nuwara Eliya District. Highlights: Sacred footprint at summit. 
+             History: Revered by Buddhists, Hindus, Christians, and Muslims. 
+             Activities: Pilgrimage hike, sunrise view from the peak. 
+             Best Time: December – May (climbing season).
+          </p>
+        </div>
+
+        <div class="destination-card">
+          <img src="gall.jpg" alt="New York">
+          <h3>Galle Fort – Southern Province</h3>
+          <p>
+             Location: Galle City. Highlights: Dutch and Portuguese colonial fort, cobblestone streets. 
+             History: Built in 1588 by the Portuguese, expanded by the Dutch. 
+             Activities: Walk along ramparts, visit cafes, explore museums and boutiques. 
+             Best Time: December – April.
+          </p>
+        </div>
+
+        <div class="destination-card">
+          <img src="ella.jpg" alt="New York">
+          <h3>Ella – Uva Province</h3>
+          <p>
+             Location: Badulla District. Highlights: Nine Arches Bridge, Ravana Falls, Ella Rock. 
+             History: Colonial-era railway town, now a backpacker hub. 
+             Activities: Hiking, photography, train rides through tea plantations. 
+             Best Time: March – June, December – February.
+          </p>
+        </div>
+
+        <!-- Add more destinations -->
+      </div>
+    </div>
+    <button class="arrow right">&#10095;</button>
+  </div>
+</section>
+
+
+<script>
+   const track = document.querySelector(".carousel-track");
+const leftBtn = document.querySelector(".arrow.left");
+const rightBtn = document.querySelector(".arrow.right");
+const cards = document.querySelectorAll(".destination-card");
+const carousel = document.querySelector(".carousel");
+
+let index = 0;
+const visibleItems = 3;   // still showing 3 cards at once
+const totalItems = cards.length;
+let autoSlide;
+
+// Update carousel (move 1 card at a time)
+function updateCarousel() {
+  const movePercent = 100 / visibleItems; // one card width
+  track.style.transform = `translateX(-${index * movePercent}%)`;
+}
+
+// Right arrow click → move 1 card
+rightBtn.addEventListener("click", () => {
+  index = (index + 1) % totalItems;
+  updateCarousel();
+});
+
+// Left arrow click → move 1 card back
+leftBtn.addEventListener("click", () => {
+  index = (index - 1 + totalItems) % totalItems;
+  updateCarousel();
+});
+
+// Auto-slide every 3 seconds (1 card per shift)
+function startAutoSlide() {
+  autoSlide = setInterval(() => {
+    index = (index + 1) % totalItems;
+    updateCarousel();
+  }, 3000);
+}
+
+function stopAutoSlide() {
+  clearInterval(autoSlide);
+}
+
+// Pause on hover
+carousel.addEventListener("mouseenter", stopAutoSlide);
+carousel.addEventListener("mouseleave", startAutoSlide);
+
+// Make each card clickable
+cards.forEach(card => {
+  card.addEventListener("click", () => {
+    alert(`You clicked on ${card.querySelector("h3").textContent}`);
+  });
+});
+
+// Add smooth animation
+track.style.transition = "transform 0.6s ease-in-out";
+
+// Start when page loads
+startAutoSlide();
+</script>
+
+
+<section class="destination-grid-section"> 
+  <h2 style="text-align:center; color:#007bff; margin-bottom:20px;">
+    Explore More Destinations
+  </h2>
+
+  <div class="destination-grid">
+    <div class="grid-card">
+      <img src="sigiriya.jpg" alt="Paris">
+      <h3> Sigiriya Rock Fortress (Lion Rock) – Central Province</h3>
+      <p></p>
+      <button class="read-more-btn" onclick="window.location.href='segiriya.html'">Read More</button>
+    </div>
+
+    <div class="grid-card">
+        <img src="tooth.jpg" alt="Paris">
+        <h3>Temple of the Tooth Relic (Sri Dalada Maligawa) – Kandy</h3>
+        <p></p>
+        <button class="read-more-btn" onclick="window.location.href='paris.html'">Read More</button>
+    </div>
+
+
+    <div class="grid-card">
+        <img src="foort.jpg" alt="Sigiriya">
+        <h3>Galle Fort – Southern Province</h3>
+        <p></p>
+        <button class="read-more-btn" onclick="window.location.href='sigiriya.html'">Read More</button>
+    </div>
+
+
+    <div class="grid-card">
+      <img src="yalakale.jpg" alt="Kandy">
+      <h3>Yala National Park – Southern Province</h3>
+      <p></p>
+      <button class="read-more-btn" onclick="window.location.href='paris.html'">Read More</button>
+    </div>
+
+
+    <div class="grid-card">
+      <img src="nuwaraeliya.jpg" alt="Kandy">
+      <h3>Nuwara Eliya – Central Province</h3>
+      <p></p>
+      <button class="read-more-btn" onclick="window.location.href='nuwaraeliya.html'">Read More</button>
+    </div>
+
+    <div class="grid-card">
+      <img src="ella4.jpg" alt="Kandy">
+      <h3>Ella – Uva Province</h3>
+      <p></p>
+      <button class="read-more-btn" onclick="window.location.href='ella.html'">Read More</button>
+    </div>
+
+    <div class="grid-card">
+      <img src="anuradhapura.jpg" alt="Kandy">
+      <h3>Anuradhapura – North Central Province</h3>
+      <p></p>
+      <button class="read-more-btn" onclick="window.location.href='anuradhapura.html'">Read More</button>
+    </div>
+
+    <div class="grid-card">
+      <img src="polonaru4.jpg" alt="Kandy">
+      <h3> Polonnaruwa – North Central Province</h3>
+      <p></p>
+      <button class="read-more-btn" onclick="window.location.href='Polonaru.html'">Read More</button>
+    </div>
+
+    <div class="grid-card">
+      <img src="dabulla.jpg" alt="Kandy">
+      <h3>Dambulla Cave Temple – Central Province</h3>
+      <p></p>
+      <button class="read-more-btn" onclick="window.location.href='dabulla.html'">Read More</button>
+    </div>
+
+    <div class="grid-card">
+      <img src="colombo4.jpg" alt="Kandy">
+      <h3>Colombo – Western Province</h3>
+      <p></p>
+      <button class="read-more-btn" onclick="window.location.href='Colombo.html'">Read More</button>
+    </div>
+
+    <div class="grid-card">
+      <img src="jaffna4.jpg" alt="Kandy">
+      <h3>Jaffna – Northern Province</h3>
+      <p></p>
+      <button class="read-more-btn" onclick="window.location.href='Jaffna.html'">Read More</button>
+    </div>
+
+    <div class="grid-card">
+      <img src="arugambey.jpg" alt="Kandy">
+      <h3>Arugam Bay – Eastern Province</h3>
+      <p></p>
+      <button class="read-more-btn" onclick="window.location.href='arugambe.html'">Read More</button>
+    </div>
+
+    <div class="grid-card">
+      <img src="trinco.jpg" alt="Kandy">
+      <h3>Trincomalee – Eastern Province</h3>
+      <p></p>
+      <button class="read-more-btn" onclick="window.location.href='trinco.html'">Read More</button>
+    </div>
+
+    <div class="grid-card">
+      <img src="siripade.jpg" alt="Kandy">
+      <h3>Adams Peak (Sri Pada) – Central Province</h3>
+      <p></p>
+      <button class="read-more-btn" onclick="window.location.href='siripade.html'">Read More</button>
+    </div>
+
+    <div class="grid-card">
+      <img src="horten.jpg" alt="Kandy">
+      <h3>Horton Plains & World’s End – Central Province</h3>
+      <p></p>
+      <button class="read-more-btn" onclick="window.location.href='horten.html'">Read More</button>
+    </div>
+
+    <div class="grid-card">
+      <img src="bentota3.jpg" alt="bentota">
+      <h3>Bentota – Southern Province</h3>
+      <p></p>
+      <button class="read-more-btn" onclick="window.location.href='bentota.html'">Read More</button>
+    </div>
+    
+    <section class="destination-grid-section">
+    
+    <!-- Add more grid cards until you reach 20 items (4×5 layout) -->
+  </div>
+</section>
+
+<style>
+/* Static Destination css */
+.destination-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 per row */
+  gap: 20px;
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.grid-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: left;
+}
+
+.grid-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.grid-card h3 {
+  font-size: 20px;
+  margin: 12px 15px 8px;
+  color: #2c3e50;
+}
+
+.grid-card p {
+  font-size: 14px;
+  color: #555;
+  margin: 0 15px 15px;
+  line-height: 1.5;
+}
+
+.grid-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.destination-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns per row */
+  gap: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.grid-card {
+  background: #f9f9ff;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  text-align: center;
+  padding: 15px;
+  cursor: pointer; /* make it like a button */
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+}
+
+.grid-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  background: #e6f0ff; /* subtle highlight on hover */
+}
+
+.grid-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.grid-card h3 {
+  font-size: 20px;
+  margin: 10px 0 5px;
+  color: #007bff;
+}
+
+.grid-card p {
+  font-size: 14px;
+  line-height: 1.4;
+  color: #555;
+}
+</style>
+
+<script>
+    const gridCards = document.querySelectorAll('.grid-card');
+
+gridCards.forEach(card => {
+  card.addEventListener('click', () => {
+    const destination = card.querySelector('h3').textContent;
+    alert(`You clicked on ${destination}`);
+    // Optionally: navigate to a page
+    // window.location.href = `${destination.toLowerCase()}.html`;
+  });
+});
+</script>
+<style>
+/* Button styling */
+.read-more-btn {
+  display: inline-block;
+  margin: 10px 0 0;
+  padding: 10px 18px;
+  background-color: #FFD700; /* yellow */
+  color: #222;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.read-more-btn:hover {
+  background-color: #FFC300; /* darker yellow on hover */
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+</style>
+
+
+
+</body>
+</html>

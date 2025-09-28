@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>home page</title>
+<style>
+/* Navbar Styles */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background: rgba(0, 0, 0, 0.6); /* semi-transparent so bg animation shows */
+  backdrop-filter: blur(8px);      /* glassy effect */
+  overflow: hidden;
+  position: fixed;   /* sticks to top */
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;  /* center items */
+}
+
+/* Nav items */
+ul li {
+  float: none; /* remove float for flexbox */
+  margin: 0 10px;
+}
+
+ul li a {
+  display: block;
+  color: #fff;
+  text-align: center;
+  padding: 14px 18px;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Hover underline animation */
+ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #00aaff;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+ul li a:hover {
+  color: #00aaff;
+}
+
+ul li a:hover::after {
+  width: 60%;
+}
+
+/* Active link (for Home) */
+ul li a.active {
+  color: #00aaff;
+}
+
+ul li a.active::after {
+  width: 60%;
+}
+
+/*start html in navbar and  button */
+</style>
+</head>
+    <body>  
+        <ul class="active">            
+            <li><a href="#home" >Home</a></li>
+            <li><a href="aboutpage.html">About Us</a></li>
+            <li><a href="destination.html">Destination</a></li>
+             <li><a href="feedback.html">Feedback</a></li>
+            <li style="float:right"><a href="login.html">Log In</a></li>
+            <li style="float:right"><a href="singup.html" href="#about">Sing Up</a></li>
+        </ul>
+    </body>
+</html>
+    <br>
+    <br>
+<style>
+/* Full background with subtle gradient animation */
+body {
+  background: url('background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Animated gradient overlay */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(120deg, rgba(0, 123, 255, 0.2), rgba(0, 0, 0, 0.6), rgba(0, 123, 255, 0.2));
+  background-size: 300% 300%;
+  animation: gradientShift 12s ease infinite;
+  z-index: 0;
+}
+
+/* Keyframes for gradient movement */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Text fade + slide animation */
+@keyframes fadeSlide {
+  0% { opacity: 0; transform: translateY(50px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Main heading */
+h1 {
+  font-size: 64px;
+  margin-top: 80px;
+  animation: fadeSlide 2s ease-in-out;
+  position: relative;
+  z-index: 1;
+  text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Paragraph box */
+p {
+  font-size: 20px;
+  width: 70%;
+  margin: 40px auto;
+  padding: 25px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.85);
+  color: #222;
+  line-height: 1.6;
+  animation: fadeSlide 2.5s ease-in-out;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover glow effect */
+p:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 123, 255, 0.25);
+}
+
+</style>
+</head>
+    <body>
+        <h1>Welcome to Travel Land</h1>
+        <br>
+        <p>
+        About Travel Land<br>
+        Travel Land is your complete guide to exploring the stunning destinations of Sri Lanka. Designed for both tourists and local travelers, it provides detailed information about each place, including attractions, history, and tips for visiting. Whether you’re planning a trip or simply curious about a location, Travel Land helps you discover new experiences with clear descriptions and beautiful images, making every journey easier and more enjoyable.
+        </p>
+    </body>
+
+
+</html>
+
